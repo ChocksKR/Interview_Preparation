@@ -1,0 +1,45 @@
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    def addTwoNumbers(self, l1, l2) -> ListNode:
+        l1_val = 0
+        l2_val = 0
+        counter = 0
+        while l1 is not None:
+            l1_val += (pow(10, counter)*l1.val)
+            l1 = l1.next
+            counter += 1
+            print (l1_val)
+
+        counter = 0
+        while l2 is not None:
+            l2_val += (pow(10, counter)*l2.val)
+            l2 = l2.next
+            counter += 1
+            print (l2_val)
+
+        x = None
+        for i in str(l1_val+l2_val):
+            newNode = ListNode(i)
+            newNode.next = x
+            x = newNode
+
+        return x
+
+"""
+2. Add Two Numbers
+
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example:
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+"""
